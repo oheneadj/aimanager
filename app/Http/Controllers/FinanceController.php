@@ -13,7 +13,7 @@ class FinanceController extends Controller
     public function index()
     {
         //
-        return view('finance.index');
+        return view('finance.index', ['finances' => Finance::with('user')->get()]);
     }
 
     /**
