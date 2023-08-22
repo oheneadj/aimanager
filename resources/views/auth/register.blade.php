@@ -67,16 +67,25 @@
                         <form id="formAuthentication" class="mb-3" method="POST" action="{{ route('register') }}">
                             @csrf
                             <div class="mb-3">
-                                <label for="name" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="name" name="name"
-                                    placeholder="Enter your name" value="{{ old('name') }}" required autofocus
-                                    autocomplete="name" />
+                                <label for="first_name" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="first_name" name="first_name"
+                                    placeholder="Enter your first name" value="{{ old('first_name') }}" required
+                                    autofocus autocomplete="first_name" />
                             </div>
                             @error('name')
                                 <small class="text-danger mt-2">{{ $message }}</small>
                             @enderror
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
+                                <label for="last_name" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="last_name" name="last_name"
+                                    placeholder="Enter your last name" value="{{ old('last_name') }}" required autofocus
+                                    autocomplete="last_name" />
+                            </div>
+                            @error('name')
+                                <small class="text-danger mt-2">{{ $message }}</small>
+                            @enderror
+                            <div class="mb-3">
+                                <l abel for="email" class="form-label">Email</l>
                                 <input type="email" class="form-control" id="email" name="email"
                                     value="{{ old('email') }}" placeholder="Enter your email" required
                                     autocomplete="email" />

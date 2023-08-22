@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FinanceController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/finances', [FinanceController::class, 'index'])->name('finances');
+    Route::get('/finances/create', [FinanceController::class, 'create'])->name('finances.create');
+    Route::post('/finances', [FinanceController::class, 'store'])->name('finances');
+    Route::get('/finances/{item}', [FinanceController::class, 'show'])->name('finances.show');
+    Route::patch('/finances', [FinanceController::class, 'edit'])->name('finances');
+    Route::get('/finances/{item}', [FinanceController::class, 'update'])->name('finances.update');
+    Route::delete('/finances', [FinanceController::class, 'destroy'])->name('finances');
 });
 
 require __DIR__ . '/auth.php';
